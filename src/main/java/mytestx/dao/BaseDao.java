@@ -12,4 +12,8 @@ public class BaseDao {
     @Qualifier("SqlSessionTemplate")
     protected SqlSession sqlSession;
 
+    @Autowired
+    @Qualifier("readSqlSessionTemplate")
+    protected SqlSession readsqlSession;
+
 }

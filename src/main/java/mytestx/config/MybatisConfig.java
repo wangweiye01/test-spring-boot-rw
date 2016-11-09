@@ -25,6 +25,10 @@ public class MybatisConfig {
     @Autowired
     @Qualifier("myDataSource")
     protected DataSource myDataSource;
+
+    @Autowired
+    @Qualifier("readDataSource")
+    protected DataSource readDataSource;
     @Bean(name="userSqlSessionFactory")
     public SqlSessionFactory SqlSessionFactory() {
         try {
@@ -62,11 +66,54 @@ public class MybatisConfig {
         }
     }
 
+    @Bean(name="readSqlSessionFactory")
+    public SqlSessionFactory ReadSqlSessionFactory() {
+        try {
+            //logger.info("userSqlSessionFactory: "+userDataSource.getConnection().getSchema());
+            SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+            factoryBean.setDataSource(readDataSource);
+//            factoryBean.setTypeAliasesPackage(propertyResolver
+//                    .getProperty("typeAliasesPackage"));
+//            factoryBean
+//                    .setMapperLocations(new PathMatchingResourcePatternResolver()
+//                            .getResources(propertyResolver
+//                                    .getProperty("mapperLocations")));
+//            factoryBean
+//                    .setConfigLocation(new DefaultResourceLoader()
+//                            .getResource(propertyResolver
+//                                    .getProperty("configLocation")));
+
+            SqlSessionFactory sqlSessionFactory = null;
+            try {
+                sqlSessionFactory = factoryBean.getObject();
+            }catch (Exception e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
+
+            org.apache.ibatis.session.Configuration configuration = sqlSessionFactory
+                    .getConfiguration();
+            configuration.setMapUnderscoreToCamelCase(true);
+
+            return sqlSessionFactory;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 
     @Bean(name = "SqlSessionTemplate")
     public SqlSessionTemplate getSqlSessionTemplate(){
         SqlSessionTemplate sessionTemplate = new SqlSessionTemplate(SqlSessionFactory());
+        return sessionTemplate;
+    }
+
+    @Bean(name = "readSqlSessionTemplate")
+    public SqlSessionTemplate getReadSqlSessionTemplate(){
+        SqlSessionTemplate sessionTemplate = new SqlSessionTemplate(ReadSqlSessionFactory());
         return sessionTemplate;
     }
 
