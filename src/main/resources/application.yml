@@ -1,0 +1,27 @@
+server:
+   port: 9596
+   topTopicLimit: 5
+# DATASOURCE
+jdbc:
+    driverClass: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/test2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+jdbc_read:
+    driverClass: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+# MyBatis
+mybatis:
+    typeAliasesPackage: mytestx
+    mapperLocations: classpath:/sqlmaps/*.xml
+    configLocation: classpath:/mybatis-config.xml
+
+
+
+
+
+
+
+
