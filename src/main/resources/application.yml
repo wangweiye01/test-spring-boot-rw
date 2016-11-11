@@ -2,6 +2,8 @@ server:
    port: 9596
    topTopicLimit: 5
 # DATASOURCE
+datasource:
+    readsize: 2
 jdbc:
     driverClass: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost/test2?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
@@ -10,6 +12,11 @@ jdbc:
 jdbc_read:
     driverClass: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+jdbc_read2:
+    driverClass: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/test1?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull
     username: root
     password: 123456
 # MyBatis

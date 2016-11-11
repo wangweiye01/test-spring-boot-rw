@@ -14,5 +14,9 @@ public class UserDao extends BaseDao {
     public List<User> userList(){
         return sqlSession.selectList("getusers");
     }
+
+    public void addUser(User user) {
+        sqlSession.insert("addUser",user);
+    }
 }
 

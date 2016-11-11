@@ -17,4 +17,8 @@ public class UserService {
     public List<User> userList(){
         return userDao.userList();
     }
+
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
 }

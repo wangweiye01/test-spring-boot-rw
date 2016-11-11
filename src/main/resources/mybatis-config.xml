@@ -6,6 +6,8 @@
     <settings>
         <setting name="lazyLoadingEnabled" value="false"/>
     </settings>
-   
+    <!--<mappers>-->
+        <!--<mapper resource="classpath:resources/UserMapper.xml" />-->
+    <!--</mappers>-->
 </configuration>   	
     	

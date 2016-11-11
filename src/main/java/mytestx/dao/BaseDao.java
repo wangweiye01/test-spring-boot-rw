@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
  */
 public class BaseDao {
     @Autowired
-    @Qualifier("SqlSessionTemplate")
+//    @Qualifier("SqlSessionTemplate")
     protected SqlSession sqlSession;
 
-    @Autowired
-    @Qualifier("readSqlSessionTemplate")
-    protected SqlSession readsqlSession;
+//    @Autowired
+//    @Qualifier("readSqlSessionTemplate")
+//    protected SqlSession readsqlSession;
 
 }
