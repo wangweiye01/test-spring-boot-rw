@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class DataSourceAop {
-    @Before("execution(* mytestx.controller.UserController.userList())")
+    @Before("execution(* mytestx.dao.UserDao.userList())")
     public void setReadDataSourceType() {
         DataSourceContextHolder.read();
         System.out.println("dataSource切换到：Read");
